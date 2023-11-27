@@ -1,11 +1,12 @@
 from pathlib import Path
 import os
 import environ
+import pyodbc
 
 env = environ.Env()
 environ.Env.read_env()
 
-
+#Redireccion de las clave y elementos de seguridad
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,7 +18,7 @@ DEBUG =  os.environ.get('DEBUG')
 ALLOWED_HOSTS = ['*']
 
 
-# Application definition
+# Aplicaciones a usar en el programa
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,7 +41,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+#Ruta de ubicacion de las url
 ROOT_URLCONF = 'core2.urls'
+
 
 TEMPLATES = [
     {
@@ -63,6 +66,9 @@ WSGI_APPLICATION = 'core2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+
+#   DATABASE_ROUTERS = ['sql_server.pyodbc.PyodbcRouter']
 
 DATABASES = {
     'default': {
@@ -103,7 +109,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images)a
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'

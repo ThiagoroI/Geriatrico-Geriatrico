@@ -1,0 +1,21 @@
+<html>
+<h1> Hostorial Medico </h1>
+<br>
+<form method = "POST">
+{% csrf_token %}
+<p> Ingrese los datos del paciente </p>
+
+Tipo de sangre {{form.Tipo_Sangre}}
+<br>
+Contacto de emergencia {{form.Contacto_Emergencia}}
+<br>
+Enfermedade {{form.Enfermedades}}
+<br>
+Cirugias {{form.Cirugias}}
+<br>
+Fecha_cirugias {{form.Fecha_cirugias}}
+<br>
+<button type = 'submit'>Enviar </button>
+</form>
+
+</html>

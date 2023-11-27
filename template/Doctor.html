@@ -1,0 +1,14 @@
+<html>
+    <h1>Doctor</h1>
+<p>Ingresar datos del doctor </p>
+<form method = "POST">
+{% csrf_token %}
+Nombre{{form.Nombre}}
+<br>
+Apellido {{form.Apellido}}
+<br>
+Especialidad {{form.Especialidad}}
+<br>
+<button type = 'submit'>Enviar</button>
+</form>
+<html>

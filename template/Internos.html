@@ -1,0 +1,18 @@
+<html>
+<h1> Internos </h1>
+<form method="POST">
+{% csrf_token %}
+
+<p> Ingrese los datos del interno </p>
+nombre{{form.nombre}}
+<br>
+apellido {{form.apellido}}
+<br>
+numero cedula {{form.numero_cedula}}
+<br>
+edad {{form.edad}}
+<br>
+Contacto de emegencia {{form.contacto_emergencia}}
+<button type="submit">Enviar</button>
+</form>
+</html>

@@ -1,7 +1,9 @@
 from django.contrib import admin
 
 from .models import *
-# Register your models here.
+
+
+# Registramos cada modelo
 
 admin.site.register(Personal)
 admin.site.register(Interno)

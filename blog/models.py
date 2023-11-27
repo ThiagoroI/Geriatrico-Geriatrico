@@ -1,15 +1,13 @@
 from django.db import models
 
-
-
 # tabla de personal del geriatrico
 class Personal (models.Model):
     nombre = models.CharField(max_length=30)
-    apelldo = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
     cargo = models.CharField(max_length=20)
     
     def __str__(self):
-       return self.nombre, self.apelldo
+       return self.nombre, self.apellido
        
 
 #Tabla de internos del geriatrico    
@@ -21,7 +19,7 @@ class Interno (models.Model):
     contacto_emergencia = models.IntegerField()
     
     def __str__(self):
-       return self.nombre, self.apelldo
+       return self.nombre, self.apellido
 
 #Tabla del doctor
 class Doctor (models.Model):
@@ -30,7 +28,7 @@ class Doctor (models.Model):
     Especialidad= models.CharField(max_length=30)    
     
     def __str__(self):
-       return self.nombre, self.apelldo, self.Especialidad
+       return self.Nombre, self.Apellido, self.Especialidad
 
 
 #Tabla del historial medico de los internos   
@@ -38,15 +36,15 @@ class Historial_medico (models.Model):
     
     #Tupla para los tipos de sangre en historial medico
     STATUS_sangre= (
-        ('O+', 'O POSITIVO'),
-        ('O-', 'O NEGATIVO'),
-        ('A+', 'A POSITIVO'),
-        ('A-', 'A NEGATIVO'),
-        ('AB+', 'AB POSITIVO'),
-        ('AB-', 'AB NEGATIVO'),
-        ('B+', 'B POSITIVO'),
-        ('B-', 'B NEGATIVO'),
-    )
+    ('O+', 'O POSITIVO'),
+    ('O-', 'O NEGATIVO'),
+    ('A+', 'A POSITIVO'),
+    ('A-', 'A NEGATIVO'),
+    ('AB+', 'AB POSITIVO'),
+    ('AB-', 'AB NEGATIVO'),
+    ('B+', 'B POSITIVO'),
+    ('B-', 'B NEGATIVO'),
+    )  
     
     Interno_Historial = models.ForeignKey(Interno, on_delete=models.CASCADE)
     Tipo_Sangre = models.CharField(choices=STATUS_sangre, max_length=3)
@@ -56,7 +54,9 @@ class Historial_medico (models.Model):
     Fecha_cirugias = models.DateField()
     
     def __str__(self) :
-       return self.Interno_Historial
+       return self.Interno_Historial, self.Tipo_Sangre, self.Contacto_Emergencia, self.Cirugias, self.Fecha_cirugias, self.Enfermedades
+   
+    
 
 
 #tabla del medicamento de los internos    
@@ -79,7 +79,7 @@ class Mensualidad (models.Model):
     ('TC','Tarjeta de credito'),
     ('TD','Tarjeta de debito'),
     ('pse','Pse'),
-    ('c','Cheque'),
+    ('c','Cheque'), 
     ('cb','Consignacion bancaria'),
 )
 
